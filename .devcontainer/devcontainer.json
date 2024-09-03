@@ -1,0 +1,16 @@
+{
+    "name": "AbanteCart Dev Container",
+    "dockerFile": "Dockerfile",
+    "appPort": [80, 3306],
+    "extensions": [
+        "ms-php.vscode-php-pack",
+        "felixfbecker.php-debug",
+        "bmewburn.vscode-intelephense-client",
+        "ms-mysql.mysql",
+        "ms-azuretools.vscode-docker"
+    ],
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "postCreateCommand": "composer install && npm install"
+}

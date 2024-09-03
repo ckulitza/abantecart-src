@@ -19,3 +19,9 @@
 /public_html/system/page_builder/*
 /public_html/system/page_builder/default/*
 /public_html/system/page_builder/default/base.html
+
+# Node modules
+node_modules/
+
+# Composer vendor directory
+vendor/

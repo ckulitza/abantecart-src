@@ -30,7 +30,12 @@ RUN service mariadb start; \
     mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;"; \
     mysql -u root -e "create database abantecart;";
 
-RUN sed -i 's/bind-address/#bind-address/' /etc/mysql/my.cnf
+# MariaDB konfigurieren
+RUN service mariadb start; \
+    mysql -u root - "CREATE USER 'admin'@'%' IDENTIFIED BY 'pass';"; \
+    mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;"; \
+    mysql -u root -e "create database abantecart;"; \
+    sed -i 's/bind-address/#bind-address/' /etc/mysql/my.cnf
 
 ADD php.ini /usr/local/etc/php/conf.d/40-custom.ini
 
